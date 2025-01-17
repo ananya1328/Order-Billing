@@ -58,6 +58,9 @@ const OrderBillingForm = () => {
     } else {
       setPopupMessage("Please fill out the form correctly before submitting.");
     }
+
+    // Hide the pop-up after 3 seconds
+    setTimeout(() => setPopupMessage(""), 3000);
   };
 
   return (
@@ -120,11 +123,7 @@ const OrderBillingForm = () => {
                   readOnly={readOnly}
                   className={`w-full p-3 border rounded-md outline-none transition-colors duration-300 ${
                     darkMode
-                      ? readOnly
-                        ? "bg-gray-700 text-gray-400"
-                        : "bg-gray-700 border-gray-600 text-gray-100 focus:ring focus:ring-blue-400"
-                      : readOnly
-                      ? "bg-gray-100 text-gray-600"
+                      ? "bg-gray-700 border-gray-600 text-gray-100 focus:ring focus:ring-blue-400"
                       : "bg-white border-gray-300 text-gray-900 focus:ring focus:ring-blue-400"
                   }`}
                   placeholder={`Enter ${label.toLowerCase()}`}
